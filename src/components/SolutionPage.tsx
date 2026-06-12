@@ -165,7 +165,7 @@ export default function SolutionPage({ worksheets, onBack }: SolutionPageProps) 
             { name: 'שכירות והוצאות ארנונה', value: 20, color: '#16a34a' },
             { name: 'כוסות וחלב', value: 10, color: '#2563eb' }
           ]}
-          title="פילוח הוצאות כוס קפה (מתוך 10 ש\"ח)"
+          title={'פילוח הוצאות כוס קפה (מתוך 10 ש"ח)'}
         />
       );
     }

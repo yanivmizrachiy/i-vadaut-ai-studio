@@ -118,7 +118,12 @@ export function LineMatching({ pairs, leftTitle = 'עמוד ימין', rightTitl
 // ==========================================
 // 5. DATA CARDS / EXAM MARKS SCENE
 // ==========================================
-export function DataCards({ values, label = 'תוצאת הציונים בקלפים כיתתיים (שאלת חקירה)' }) {
+interface DataCardsProps {
+  values: number[];
+  label?: string;
+}
+
+export function DataCards({ values, label = 'תוצאת הציונים בקלפים כיתתיים (שאלת חקירה)' }: DataCardsProps) {
   return (
     <div className="mt-4 break-inside-avoid">
       <span className="text-[11px] font-bold text-slate-500 block mb-2 font-sans">{label}:</span>

@@ -94,7 +94,7 @@ export default function WorksheetPage({ worksheet, onBack }: WorksheetPageProps)
           <div className="space-y-3 text-xs">
             <div>
               <div className="flex justify-between items-center mb-1">
-                <span className="font-sans font-bold">כיתה ז\'1 (15 מתוך 30):</span>
+                <span className="font-sans font-bold">{"כיתה ז'1 (15 מתוך 30):"}</span>
                 <span className="font-mono font-bold text-slate-950">0.50 (50%)</span>
               </div>
               <div className="w-full bg-slate-200 h-4 rounded-lg overflow-hidden">
@@ -103,11 +103,11 @@ export default function WorksheetPage({ worksheet, onBack }: WorksheetPageProps)
             </div>
             <div>
               <div className="flex justify-between items-center mb-1">
-                <span className="font-sans font-bold">כיתה ז\'2 (12 מתוך 20):</span>
-                <span className="font-mono font-bold text-emerald-800 font-bold">0.60 (60%)</span>
+                <span className="font-sans font-bold">{"כיתה ז'2 (12 מתוך 20):"}</span>
+                <span className="font-mono font-bold text-emerald-800">0.60 (60%)</span>
               </div>
               <div className="w-full bg-slate-200 h-4 rounded-lg overflow-hidden">
-                <div className="bg-emerald-600 h-full w-[60%] font-semibold text-[10px] text-white pr-2 flex items-center justify-end">מוביל יחסית ז\'2! 🎉</div>
+                <div className="bg-emerald-600 h-full w-[60%] font-semibold text-[10px] text-white pr-2 flex items-center justify-end">{"מוביל יחסית ז'2! 🎉"}</div>
               </div>
             </div>
           </div>
@@ -180,7 +180,7 @@ export default function WorksheetPage({ worksheet, onBack }: WorksheetPageProps)
             { name: 'שכירות והוצאות ארנונה', value: 20, color: '#16a34a' },
             { name: 'כוסות וחלב', value: 10, color: '#2563eb' }
           ]}
-          title="פילוח הוצאות כוס קפה (מתוך 10 ש\"ח)"
+          title={'פילוח הוצאות כוס קפה (מתוך 10 ש"ח)'}
         />
       );
     }
@@ -208,48 +208,48 @@ export default function WorksheetPage({ worksheet, onBack }: WorksheetPageProps)
       </div>
 
       {/* The Printable A4 Page Wrap */}
-      <div id="a4-page" className="max-w-4xl mx-auto bg-white border border-slate-300 shadow-lg rounded-3xl p-8 sm:p-12 print:border-none print:shadow-none print:rounded-none print:p-0">
+      <div id="a4-page" className="ws-content-card">
         
         {/* Printable Grid Header */}
-        <div id="print-sheet-header" className="border-b-4 border-slate-900 pb-4 mb-8">
+        <div id="print-sheet-header" className="ws-page-header">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
-              <span className="text-xs font-bold text-slate-500 uppercase tracking-widest block mb-1">
+              <span className="ws-badge">
                 מערך דפי עבודה ארציים במתמטיקה — כיתה {worksheet.classLevel}
               </span>
-              <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-sans">
+              <h1 className="ws-title">
                 {worksheet.title}
               </h1>
-              <p className="text-xs text-slate-650 mt-1 pl-2 font-serif text-slate-600 italic">
+              <p className="ws-topic">
                 {worksheet.topic}
               </p>
             </div>
-            <div className="text-xs text-slate-500 font-mono text-left self-end sm:self-center bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200">
+            <div className="ws-metadata-box">
               <div>משך זמן פתרון: <strong>{worksheet.durationMinutes}</strong> דקות</div>
               <div>נושא דף {worksheet.number} בסדרת החקר</div>
             </div>
           </div>
 
           {/* Student details boxes */}
-          <div className="grid grid-cols-3 gap-4 border border-slate-350 p-3 rounded-xl mt-6">
-            <div className="flex items-center gap-2 text-xs">
-              <span className="text-slate-500 font-semibold">שם התלמיד/ה:</span>
-              <div className="border-b border-dotted border-slate-400 flex-1 h-5"></div>
+          <div className="ws-student-info">
+            <div className="ws-student-info-item">
+              <span className="ws-student-label">שם התלמיד/ה:</span>
+              <div className="ws-student-dotted"></div>
             </div>
-            <div className="flex items-center gap-2 text-xs">
-              <span className="text-slate-500 font-semibold">כיתה:</span>
-              <div className="border-b border-dotted border-slate-400 flex-1 h-5"></div>
+            <div className="ws-student-info-item">
+              <span className="ws-student-label">כיתה:</span>
+              <div className="ws-student-dotted"></div>
             </div>
-            <div className="flex items-center gap-2 text-xs">
-              <span className="text-slate-500 font-semibold">תאריך ביצוע:</span>
-              <div className="border-b border-dotted border-slate-400 flex-1 h-5"></div>
+            <div className="ws-student-info-item">
+              <span className="ws-student-label">תאריך ביצוע:</span>
+              <div className="ws-student-dotted"></div>
             </div>
           </div>
         </div>
 
         {/* Instructions */}
-        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 mb-8 text-xs text-slate-705 leading-relaxed print:bg-white print:border-slate-300">
-          <h3 className="font-bold text-slate-800 mb-1 flex items-center gap-1.5">
+        <div className="ws-instructions-box">
+          <h3 className="ws-instructions-title">
             <HelpCircle size={14} className="text-slate-550" />
             הנחיות לתלמידים:
           </h3>
@@ -257,7 +257,7 @@ export default function WorksheetPage({ worksheet, onBack }: WorksheetPageProps)
         </div>
 
         {/* Questions list */}
-        <div className="space-y-10">
+        <div className="ws-questions-container">
           {worksheet.questions.map((q, idx) => {
             const isChecked = checkedQuestions[q.id];
             const studentAns = studentAnswers[q.id] || '';
@@ -272,25 +272,25 @@ export default function WorksheetPage({ worksheet, onBack }: WorksheetPageProps)
             }
 
             return (
-              <div key={q.id} className="question-block border-b border-slate-100 pb-8 last:border-none last:pb-0 break-inside-avoid">
-                <div className="flex justify-between items-start mb-3 gap-2">
-                  <div className="flex gap-2">
-                    <span className="bg-slate-900 text-white rounded-lg w-7 h-7 flex items-center justify-center text-sm font-bold shrink-0 font-sans">
+              <div key={q.id} className="ws-question-item">
+                <div className="ws-question-header">
+                  <div className="ws-question-left-wrap">
+                    <span className="ws-question-number">
                       {q.number}
                     </span>
-                    <h2 className="text-sm font-bold text-slate-900 leading-relaxed pt-0.5">
+                    <h2 className="ws-question-text">
                       {q.text}
                     </h2>
                   </div>
                   {q.points && (
-                    <span className="text-[10px] bg-slate-100 text-slate-650 px-2 py-0.5 rounded-full shrink-0 h-fit border border-slate-200 font-mono font-bold">
-                      {q.points} נק\'
+                    <span className="ws-points-badge">
+                      סעיף {q.number} | {q.points} נק\'
                     </span>
                   )}
                 </div>
 
                 {/* Question body per type */}
-                <div className="mr-9 mt-3">
+                <div className="ws-question-body">
                   
                   {/* Inline visual elements */}
                   {renderQuestionVisual(q.id)}
@@ -373,11 +373,11 @@ export default function WorksheetPage({ worksheet, onBack }: WorksheetPageProps)
                   )}
 
                   {/* Interactive Verification Buttons (Hidden in print) */}
-                  <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 print:hidden">
+                  <div className="ws-action-wrapper print:hidden">
                     <button
                       onClick={() => handleCheckAnswer(q)}
                       disabled={studentAns === '' && q.type !== QuestionType.TABLE_COMPLETION}
-                      className="bg-slate-100 hover:bg-slate-200 disabled:opacity-50 text-slate-700 text-xs px-3.5 py-1.5 rounded-lg font-bold transition cursor-pointer"
+                      className="ws-btn-interactive"
                     >
                       בדיקת תשובה בדפדפן
                     </button>
@@ -386,22 +386,22 @@ export default function WorksheetPage({ worksheet, onBack }: WorksheetPageProps)
                       <div className="flex items-center gap-1.5 text-xs select-text">
                         {q.type === QuestionType.MULTIPLE_CHOICE || q.type === QuestionType.TRUE_FALSE ? (
                           isCorrect ? (
-                            <span className="text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-xl font-bold flex items-center gap-1.5 shadow-sm">
+                            <span className="ws-well-correct">
                               <CheckCircle2 size={16} className="text-emerald-600" />
                               נכון מאוד! פתרון מצוין.
                             </span>
                           ) : (
-                            <span className="text-red-650 bg-red-50 border border-red-200 px-3 py-1.5 rounded-xl font-bold flex items-center gap-1.5 shadow-sm">
+                            <span className="ws-well-incorrect">
                               <XCircle size={16} className="text-red-500" />
                               תשובה חלקית או שגויה. נסו שוב.
                             </span>
                           )
                         ) : (
-                          <div className="text-indigo-900 bg-indigo-50 border border-indigo-150 p-3 rounded-xl shadow-sm text-right">
-                            <span className="font-extrabold text-[10px] text-slate-500 uppercase block mb-1">תשובה לדוגמה משרדית:</span>
-                            <p className="font-bold mb-1.5 text-indigo-950">{q.correctAnswer}</p>
-                            <span className="font-extrabold text-[10px] text-slate-550 block border-t border-indigo-100 pt-1 mt-1 font-sans">הסבר מלא לליווי:</span>
-                            <p className="text-[11px] leading-relaxed italic text-slate-750 font-serif whitespace-pre-line mt-1">{q.solutionStepByStep}</p>
+                          <div className="ws-solutions-container">
+                            <span className="ws-solution-head-label">תשובה לקבלת אימות משרדי:</span>
+                            <p className="ws-solution-ans">{q.correctAnswer}</p>
+                            <span className="ws-solution-explain-head">הסבר מתמטי ודרך פתרון מלווה:</span>
+                            <p className="ws-solution-explain-text">{q.solutionStepByStep}</p>
                           </div>
                         )}
                       </div>
@@ -414,7 +414,7 @@ export default function WorksheetPage({ worksheet, onBack }: WorksheetPageProps)
         </div>
 
         {/* Footer */}
-        <div id="print-sheet-footer" className="mt-16 border-t border-slate-300 pt-4 text-center text-[10px] text-slate-400 flex justify-between items-center">
+        <div id="print-sheet-footer" className="ws-footer">
           <span>מדפס רשת מורשה — "תחום אי וודאות" במתמטיקה</span>
           <span>עמוד 1 מתוך 1 | כיתה {worksheet.classLevel} פדגוגי</span>
         </div>

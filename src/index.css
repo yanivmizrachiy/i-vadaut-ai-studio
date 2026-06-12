@@ -8,17 +8,55 @@
 
 body {
   font-family: var(--font-sans);
-  background-color: #f8fafc;
+  background-color: #f1f5f9; /* Slate-100 */
 }
 
-/* Hardened A4 Print Formatting Rules */
-@media print {
-  /* Set standard A4 portrait size with 0 margins */
-  @page {
-    size: A4 portrait;
-    margin: 15mm 15mm 15mm 15mm;
-  }
+/* ==========================================================================
+   DESIGN SYSTEM CLASS SEPARATIONS - FOR EASY CUSTOM EDITING & MAINTENANCE
+   Edit the values below to globally alter the appearance of all pages!
+   ========================================================================== */
 
+/* 1. LAYOUT CONTAINERS */
+.ws-outer-container {
+  min-height: 100vh;
+  background-color: #f1f5f9; /* slate-100 background */
+  padding-top: 2rem; /* py-8 */
+  padding-bottom: 2rem;
+  padding-left: 1rem; /* px-4 */
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
+  .ws-outer-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .ws-outer-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Page Frame/Card containing standard printable A4 worksheet layout */
+.ws-content-card {
+  max-w: 56rem; /* max-w-4xl */
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1; /* border-slate-300 */
+  border-radius: 1.5rem; /* rounded-3xl */
+  padding: 1.5rem; /* p-6 */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+}
+@media (min-width: 640px) {
+  .ws-content-card {
+    padding: 2.5rem; /* sm:p-10 */
+  }
+}
+
+/* 2. PRINT / PDF EXPORT REINFORCEMENTS */
+@media print {
   body {
     background-color: #ffffff !important;
     color: #000000 !important;
@@ -26,25 +64,351 @@ body {
     line-height: 1.5 !important;
   }
 
-  /* Force elements to display accurately */
+  /* Set A4 standard portrait page with unified 15mm margins */
+  @page {
+    size: A4 portrait;
+    margin: 15mm 15mm 15mm 15mm;
+  }
+
   .print\:hidden {
     display: none !important;
   }
 
-  .print\:border-slate-300 {
-    border-color: #cbd5e1 !important;
-    border-width: 1px !important;
+  /* Remove screen decorations, shadows & borders */
+  .ws-outer-container {
+    background-color: #ffffff !important;
+    padding: 0 !important;
   }
 
-  /* Prevent split blocks across pages */
+  .ws-content-card {
+    background-color: #ffffff !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Prevent blocks from breaking across pages in printouts */
   .break-inside-avoid {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
 
-  /* Hide raw browser header and footer decoration */
+  /* Force color adjust in printing */
   body {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+  }
+}
+
+/* 3. HEADERS & TYPOGRAPHY */
+.ws-badge {
+  background-color: #fef3c7; /* Amber-100 */
+  border: 1px solid #fde68a; /* Amber-200 */
+  color: #92400e; /* Amber-800 */
+  font-size: 10px;
+  font-weight: 800;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.ws-page-header {
+  border-bottom: 4px solid #0f172a; /* Thick Slate-900 border */
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media (min-width: 640px) {
+  .ws-page-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.ws-title {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 900; /* font-black */
+  color: #0f172a; /* text-slate-900 */
+  font-family: var(--font-sans);
+  margin-top: 0.5rem;
+}
+@media (min-width: 640px) {
+  .ws-title {
+    font-size: 1.5rem; /* sm:text-2xl */
+  }
+}
+
+.ws-topic {
+  font-size: 12px; /* text-xs */
+  color: #475569; /* text-slate-650 */
+  font-family: var(--font-sans);
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.ws-metadata-box {
+  font-size: 11px;
+  color: #64748b; /* text-slate-500 */
+  font-family: var(--font-mono);
+  background-color: #f1f5f9; /* bg-slate-100 */
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+}
+
+/* 4. STUDENT CREDENTIALS BLOCK */
+.ws-student-info {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  border: 1.5px solid #cbd5e1; /* border-slate-350 */
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.ws-student-info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 12px;
+}
+
+.ws-student-label {
+  color: #475569;
+  font-weight: 700;
+}
+
+.ws-student-dotted {
+  border-bottom: 2px dotted #94a3b8; /* dotted line for writing */
+  flex: 1 1 0%;
+  height: 1.25rem; /* h-5 */
+}
+
+/* 5. STUDENT INSTRUCTIONS ALERT BOX */
+.ws-instructions-box {
+  background-color: #f8fafc; /* bg-slate-50 */
+  border: 1px solid #cbd5e1; /* border-slate-205 */
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  font-size: 12px;
+  color: #334155;
+  line-height: 1.625;
+}
+@media print {
+  .ws-instructions-box {
+    background-color: #ffffff !important;
+  }
+}
+
+.ws-instructions-title {
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+/* 6. QUESTION BOXES & CONTAINERS */
+.ws-questions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; /* space-y-10 */
+}
+
+.ws-question-item {
+  border-bottom: 1.5px solid #f1f5f9; /* divider line */
+  padding-bottom: 2rem;
+}
+.ws-question-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+@media print {
+  .ws-question-item {
+    border-bottom: 1.5px solid #cbd5e1 !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+}
+
+.ws-question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.ws-question-left-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.ws-question-number {
+  background-color: #0f172a; /* dark badge */
+  color: #ffffff;
+  border-radius: 0.5rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+  flex-shrink: 0;
+  font-family: var(--font-sans);
+}
+
+.ws-question-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.625;
+  padding-top: 0.125rem;
+}
+
+.ws-points-badge {
+  font-size: 10px;
+  background-color: #f1f5f9;
+  color: #334155;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  flex-shrink: 0;
+  border: 1px solid #cbd5e1;
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.ws-question-body {
+  margin-right: 2.25rem; /* offsets from question badge */
+  margin-top: 0.75rem;
+}
+
+/* 7. VERIFICATION ACTIONS AND ALERTS */
+.ws-btn-interactive {
+  background-color: #f1f5f9;
+  color: #334155;
+  font-size: 12px;
+  padding: 0.375rem 0.875rem;
+  border-radius: 0.5rem;
+  border: 1px solid #cbd5e1;
+  font-weight: 700;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.ws-btn-interactive:hover {
+  background-color: #e2e8f0;
+}
+.ws-btn-interactive:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ws-action-wrapper {
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-t: 1px solid #f1f5f9;
+  padding-top: 0.75rem;
+}
+
+.ws-well-correct {
+  color: #047857;
+  background-color: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.75rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.ws-well-incorrect {
+  color: #be123c;
+  background-color: #fff1f2;
+  border: 1px solid #fecdd3;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.75rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.ws-solutions-container {
+  background-color: #f5f3ff; /* bg-indigo-50 */
+  border: 1px solid #ddd6fe; /* border-indigo-150 */
+  color: #1e1b4b;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  width: 100%;
+  text-align: right;
+}
+
+.ws-solution-head-label {
+  font-weight: 800;
+  font-size: 10px;
+  color: #64748b;
+  text-transform: uppercase;
+  display: block;
+}
+
+.ws-solution-ans {
+  font-weight: 800;
+  color: #1e1b4b;
+  margin-top: 0.125rem;
+}
+
+.ws-solution-explain-head {
+  font-weight: 800;
+  font-size: 10px;
+  color: #475569;
+  display: block;
+  border-top: 1px dashed #ddd6fe;
+  padding-top: 0.375rem;
+  margin-top: 0.375rem;
+}
+
+.ws-solution-explain-text {
+  font-size: 11px;
+  line-height: 1.625;
+  font-style: italic;
+  font-family: var(--font-serif);
+  white-space: pre-line;
+  margin-top: 0.25rem;
+}
+
+.ws-footer {
+  margin-top: 4rem;
+  border-top: 1.5px solid #cbd5e1;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  color: #94a3b8;
+}
+
+/* 8. MATH VISUALS WIDGETS */
+.math-widget-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.75rem;
+  background-color: #f8fafc;
+}
+@media print {
+  .math-widget-box {
+    background-color: #ffffff !important;
   }
 }
