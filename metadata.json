@@ -1,0 +1,6 @@
+{
+  "name": "תחום אי וודאות - דפי עבודה במתמטיקה",
+  "description": "מערכת דפי עבודה אינטראקטיביים ולהדפסה בעברית בנושא סטטיסטיקה, הסתברות, ייצוג נתוני עמודות ועיגול, חציון וממוצע לחטיבת הביניים.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

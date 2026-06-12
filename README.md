@@ -1,11 +1,35 @@
-<div align="center">
+# אי ודאות
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+ריפו ייעודי לתחום אי־ודאות במתמטיקה לחטיבת הביניים.
 
-  <h1>Built with AI Studio</h2>
+## קובץ מקור
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+files/תחום אי וודאות.pdf
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## מטרת הריפו
 
-</div>
+לשמש מקור אמת מסודר לחומרי הוראה, דפי עבודה, שאלות, פתרונות, פעילויות אורייניות וכלי AI בתחום אי־ודאות.
+
+## נושאי ליבה
+
+- איסוף וארגון נתונים
+- טבלאות שכיחות
+- דיאגרמות עמודות / מקלות
+- דיאגרמות עיגול
+- מעבר בין ייצוגים
+- שכיחות יחסית
+- ממוצע
+- חציון
+- שכיח
+- טווח
+- הסתברות בסיסית
+- אוריינות מתמטית
+- חשיבה ביקורתית על ייצוגי נתונים
+
+## מבנה
+
+files/ - קבצי מקור
+docs/ - תיעוד והנחיות AI
+worksheets/ - דפי עבודה עתידיים
+solutions/ - פתרונות עתידיים
+teacher-guide/ - מדריכים למורה
