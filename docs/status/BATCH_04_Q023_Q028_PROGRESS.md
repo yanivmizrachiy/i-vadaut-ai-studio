@@ -2,7 +2,7 @@
 
 ## Current synchronized work
 
-Batch 04 has been started under:
+Batch 04 is under:
 
 `worksheet/production-batches/batch-04-q023-q028/`
 
@@ -15,6 +15,8 @@ Batch 04 has been started under:
 - Q025 page: `6e131c7b4dd3b15c1276ab14f8935c1d619dbdf4`
 - Q026 page: `49fdad61f286df41f83f0b4400cf1fb1cea30884`
 - Q027 page: `97aefd72f066a9672fd79e419cb2d732c459ff4f`
+- Source page map: `f0a46d9dadac0b24ae6218199bf3d5842020cf2e`
+- Q028 safe placeholder: `7b3e0c537d409141da21f8c7c34a7b684b22e667`
 
 ## Produced records
 
@@ -23,13 +25,12 @@ Batch 04 has been started under:
 - Q025 — produced.
 - Q026 — produced.
 - Q027 — produced.
-
-## Not yet produced in this batch
-
-- Q028 — blocked by tool safety check during file creation, not by math content. Needs retry in a smaller/cleaner file or alternate synchronized method.
+- Q028 — safe placeholder produced; full reconstruction still pending.
 
 ## Important status
 
-This batch is not complete yet.
+Batch 04 now has a page slot for every planned question Q023-Q028.
 
-Do not mark Batch 04 complete until Q028 is added and all Q023-Q028 pages are verified against source pages 28-31.
+This is still not complete for final because Q028 is a placeholder and Q023 needs source-variable verification.
+
+Do not mark Batch 04 final until all Q023-Q028 pages are verified against source pages 28-31 and Q028 is replaced by a full source-accurate page.
