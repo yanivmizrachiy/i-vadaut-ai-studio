@@ -23,7 +23,7 @@ body {
   width: 210mm;
   min-height: 297mm;
   margin: 10mm auto;
-  padding: 17mm 16mm 11mm;
+  padding: 15mm 16mm 11mm;
   background: #ffffff;
   border: 1.2px solid #112b4c;
   border-radius: 14px;
@@ -31,26 +31,20 @@ body {
 }
 
 .page-header {
-  text-align: center;
-  margin-bottom: 15mm;
+  width: 100%;
+  margin-bottom: 14mm;
+  border-bottom: 1px solid #112b4c;
+  text-align: left;
 }
 
-.page-header h1 {
-  margin: 0 0 5mm;
-  color: #112b4c;
-  font-size: 31pt;
-  line-height: 1.1;
-  font-weight: 650;
-  letter-spacing: 0.2px;
-}
-
-.meta {
+.top-line-title {
   display: inline-block;
-  padding-top: 3mm;
-  border-top: 1px solid #112b4c;
-  color: #41506a;
-  font-size: 11pt;
+  padding: 0 0 2.2mm;
+  color: #112b4c;
+  font-size: 12pt;
+  line-height: 1;
   font-weight: 400;
+  letter-spacing: 0.7px;
 }
 
 .question-card {
@@ -75,7 +69,7 @@ body {
   color: #ffffff;
   border-radius: 50%;
   font-size: 13pt;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .question-layout {
@@ -99,7 +93,7 @@ body {
 .visual text {
   fill: #172b46;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .question-text {
@@ -139,7 +133,7 @@ body {
 .letter {
   color: #274266;
   font-size: 12pt;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .value {
