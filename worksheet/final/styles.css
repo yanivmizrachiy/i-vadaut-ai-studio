@@ -1,0 +1,4 @@
+@page { size: A4; margin: 0; }
+html, body { margin: 0; padding: 0; direction: rtl; font-family: Arial, sans-serif; }
+.not-ready { width: 210mm; min-height: 297mm; padding: 25mm; box-sizing: border-box; }
+.status-card { border: 1px solid #d7dde8; border-right: 6px solid #174ea6; padding: 12mm; line-height: 1.6; }
